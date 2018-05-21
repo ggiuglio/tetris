@@ -131,6 +131,7 @@
                upArrow.addEventListener("mousedown", mouseEvent);
                leftArrow.addEventListener("mousedown", mouseEvent);
                downArrow.addEventListener("mousedown", mouseEvent);
+               scope.stage.addEventListener("stagemouseup", mouseUpEvent);
                rightArrow.addEventListener("mousedown", mouseEvent);
              };
 
@@ -188,8 +189,13 @@
                    case "leftArrow": move("left"); break;
                    case "upArrow": move("rotateLeft"); break;
                    case "rightArrow": move("right"); break;
+                   case "downArrow": extraSpeedStart(); break;
                }
              };
+
+             function mouseUpEvent(e) {
+                extraSpeedStop();
+            };
 
              function moveDown() {
                  var move = calculateMove('down');
