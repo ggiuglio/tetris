@@ -80,13 +80,14 @@
 
                document.addEventListener("keydown", keyEvent);
                document.addEventListener("keyup", keyUpEvent);
+               createjs.Touch.enable(scope.stage);
                createjs.Ticker.timingMode = createjs.Ticker.RAF;
                createjs.Ticker.addEventListener("tick", tick);
                scope.stage.update();
              };
 
              function loadControls() {
-               upArrow = new createjs.Bitmap("/assets/images/upArrow.png");
+               upArrow = new createjs.Bitmap("./assets/images/upArrow.png");
                upArrow.name = "upArrow";
                upArrow.x = 79;
                upArrow.y = 465;
@@ -95,7 +96,7 @@
                upArrow.scaleX = 0.3;
                upArrow.scaleY = 0.3;
 
-               leftArrow = new createjs.Bitmap("/assets/images/leftArrow.png");
+               leftArrow = new createjs.Bitmap("./assets/images/leftArrow.png");
                leftArrow.name = "leftArrow";
                leftArrow.x = 10;
                leftArrow.y = 512;
@@ -104,7 +105,7 @@
                leftArrow.scaleX = 0.3;
                leftArrow.scaleY = 0.3;
 
-               downArrow = new createjs.Bitmap("/assets/images/downArrow.png");
+               downArrow = new createjs.Bitmap("./assets/images/downArrow.png");
                downArrow.name = "downArrow";
                downArrow.x = 79;
                downArrow.y = 512;
@@ -113,7 +114,7 @@
                downArrow.scaleX = 0.3;
                downArrow.scaleY = 0.3;
 
-               rightArrow = new createjs.Bitmap("/assets/images/rightArrow.png");
+               rightArrow = new createjs.Bitmap("./assets/images/rightArrow.png");
                rightArrow.name = "rightArrow";
                rightArrow.x = 148;
                rightArrow.y = 512;
@@ -128,11 +129,11 @@
                scope.stage.addChild(downArrow);
                scope.stage.addChild(rightArrow);
 
-               upArrow.addEventListener("mousedown", mouseEvent);
-               leftArrow.addEventListener("mousedown", mouseEvent);
-               downArrow.addEventListener("mousedown", mouseEvent);
-               scope.stage.addEventListener("stagemouseup", mouseUpEvent);
-               rightArrow.addEventListener("mousedown", mouseEvent);
+               upArrow.on("mousedown", mouseEvent);
+               leftArrow.on("mousedown", mouseEvent);
+               downArrow.on("mousedown", mouseEvent);
+               scope.stage.on("stagemouseup", mouseUpEvent);
+               rightArrow.on("mousedown", mouseEvent);
              };
 
              function loadNewPiece() {
@@ -488,6 +489,7 @@
              }
 
              function extraSpeedStart() {
+               console.log('extraspeed');
               speed = 20; 
              }
 

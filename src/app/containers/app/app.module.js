@@ -17,13 +17,13 @@ export const AppModule = angular
 
     $stateProvider
       .state(COMPONENT_NAME, {
-        url: `/${COMPONENT_NAME}`,
+        url: `/tetris`,
         component: COMPONENT_NAME,
         data: {
           requiredAuth: true
         }
       });
     $locationProvider.html5Mode(true);
-    $urlRouterProvider.otherwise(`/${COMPONENT_NAME}`);
+    $urlRouterProvider.otherwise(`/tetris`);
   })
   .name;
