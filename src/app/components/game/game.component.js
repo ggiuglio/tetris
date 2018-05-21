@@ -46,6 +46,7 @@ export const GameComponent = {
     controller: class GameComponent {
       constructor(EventEmmiter, $window, $rootScope) {
         'ngInject';
+        this.root = $rootScope;
   
         this.EventEmmiter = EventEmmiter;
 
@@ -67,7 +68,7 @@ export const GameComponent = {
 
         start(dir) {
             if(this.status == "gameover") {
-                $rootScope.$emit('resetGame', dir);
+                this.root.$emit('resetGame', dir);
             }
             this.status = "playing";
         };

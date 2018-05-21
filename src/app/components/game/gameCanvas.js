@@ -13,8 +13,6 @@
          template: "<canvas class='gameCanvas' width='200' height='200'></canvas>",
          link: function (scope, element) {
 
-console.log('level', scope.level);
-
              var w, h, newPiece, onHold, baseline, maxBaseline, upArrow, leftArrow, downArrow, rightArrow,
              speed, deltaS, blocksOnTheGround, blocksOnTheGroundContainer, speedTable, checking;
              onHold = false;
@@ -80,7 +78,8 @@ console.log('level', scope.level);
                loadNewPiece();
                loadControls();
 
-               window.addEventListener("keydown", keyEvent);
+               document.addEventListener("keydown", keyEvent);
+               document.addEventListener("keyup", keyUpEvent);
                createjs.Ticker.timingMode = createjs.Ticker.RAF;
                createjs.Ticker.addEventListener("tick", tick);
                scope.stage.update();
@@ -172,8 +171,17 @@ console.log('level', scope.level);
                      case 37: move("left"); break;
                      case 38: move("rotateLeft"); break;
                      case 39: move("right"); break;
+                     case 40: extraSpeedStart(); break;
                  }
              };
+
+             function keyUpEvent(e) {
+              var code = e.keyCode;
+              console.log('kez', code)
+              switch (code) {
+                  case 40: extraSpeedStop(); break;
+              }
+          };
 
              function mouseEvent(e) {
                switch (e.target.name) {
@@ -471,6 +479,15 @@ console.log('level', scope.level);
                  blocksOnTheGround[i] = row;
                }
                blocksOnTheGroundContainer.removeAllChildren();
+             }
+
+             function extraSpeedStart() {
+              speed = 20; 
+             }
+
+             function extraSpeedStop() {
+               console.log('up');
+              speed = speedTable[scope.level - 1] * 5;
              }
          }
        };
