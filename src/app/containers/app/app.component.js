@@ -1,12 +1,8 @@
 export const AppComponent = {
   template: `
     <div class="app">
-      <app-nav
-        user="$ctrl.user"
-        on-logout="$ctrl.logout();"
-        button-title="{{$ctrl.button}}">
-      </app-nav>
-      <ui-view></ui-view>
+     <game>
+     </game>
     </div>
   `,
   controller: class AppComponent {

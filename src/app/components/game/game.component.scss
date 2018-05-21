@@ -1,0 +1,112 @@
+.gameStage {
+    width: 100vw;
+    height: 100vh;
+    touch-action: manipulation;
+  }
+  
+  .score {
+    float: left;
+    padding-left: 3px;
+  }
+  .level {
+    float: right;
+    padding-right: 9px;
+  }
+  
+  .firstRowButtons {
+    position: absolute;
+    top: 465px;
+    width: 100vw;
+    display: inline-flex;
+  }
+  
+  .secondRowButtons {
+    position: absolute;
+    top: 520px;
+    width: 100vw;
+    display: inline-flex;
+  }
+  
+  .upArrow {
+      cursor: pointer;
+      margin-left: auto;
+      margin-right: auto;
+      height: 50px;
+      width: 50px;
+  }
+  
+  .leftArrow {
+      cursor: pointer;
+      height: 50px;
+      width: 50px;
+      display: inline-flex;
+  }
+  
+  .downArrow {
+      cursor: pointer;
+      margin-left: auto;
+      height: 50px;
+      width: 50px;
+  }
+  
+  .rightArrow {
+      cursor: pointer;
+      margin-left: auto;
+      height: 50px;
+      width: 50px;
+      display: inline-flex;
+  }
+  
+  .gameControll {
+    z-index: 1000;
+    position: absolute;
+    width: 100px;
+    top: 250px;
+    left: 0px;
+    margin-left: calc(50% - 50px);
+    background-color: white;
+    text-align: center;
+    border: 2px black solid;
+    height: 25px;
+    padding-top: 2px;
+    cursor: pointer;
+  }
+  
+  .gameover {
+    z-index: 1000;
+    position: absolute;
+    width: 200px;
+    top: 150px;
+    left: 0px;
+    background-color: white;
+    text-align: center;
+    border: 2px black solid;
+    height: 70px;
+    padding-top: 15px;
+    cursor: pointer;
+  }
+  
+  .desktop {
+    width: 197px;
+    margin-left: calc(50% - 103px);
+  }
+  .mobile {
+    width: 100%;
+  }
+  
+  
+  
+  @media only screen and (min-width: 206px) {
+    .gameStage {
+      height: 580px;
+      width: 206px;
+      margin: 20px auto 0 auto;
+    }
+    .firstRowButtons {
+      width: 206px;
+    }
+    .secondRowButtons {
+      width: 206px;
+    }
+  }
+  

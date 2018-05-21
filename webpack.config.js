@@ -47,6 +47,12 @@ const rules = [
         options: { sourceMap: true }
       }
     ]
+  },
+  {
+    test: /\.(png|svg|jpg|gif)$/,
+    use: [
+      'file-loader'
+    ]
   }
 ];
 
